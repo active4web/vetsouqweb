@@ -1,0 +1,123 @@
+:root {
+    --main_color: #015a92;
+    --second_color: #248BCB;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+button,
+input,
+textarea {
+    font-family: "Tajawal", sans-serif;
+}
+
+body {
+    height: 5000px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--second_color);
+}
+
+::-webkit-scrollbar-track {
+    background-color: #FFF;
+}
+
+.container {
+    margin-inline: auto;
+    padding-inline: 15px;
+    width: 100%;
+    max-width: 1300px;
+
+    @media (max-width: 1200px) {
+        max-width: 1140px;
+    }
+
+    @media (max-width: 992px) {
+        max-width: 960px;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 720px;
+    }
+
+    @media (max-width: 576px) {
+        max-width: 100%;
+    }
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 50px;
+
+    li {
+        cursor: pointer;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        overflow: hidden;
+
+        &.active {
+            background-color: var(--main_color);
+            color: white;
+            border-color: var(--main_color);
+        }
+
+        &:first-of-type,
+        &:last-of-type {
+            a:hover {
+                background-color: var(--main_color);
+                color: #FFF;
+            }
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            padding: 5px 15px;
+            transition: all 0.3s;
+        }
+    }
+
+    @media (max-width: 767px) {
+        li {
+            width: 35px;
+
+            a {
+                padding: 5px;
+            }
+        }
+    }
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+@media (max-width : 991px) {
+    * {
+        cursor: auto !important;
+    }
+}

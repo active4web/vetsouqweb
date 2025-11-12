@@ -1,0 +1,108 @@
+.profile {
+    .content {
+        padding-top: 50px;
+        padding-bottom: 30px;
+
+        .main-container {
+            h2 {
+                text-align: center;
+                font-size: 40px;
+                color: var(--secondColor);
+                margin-bottom: 30px;
+            }
+
+            .form {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    max-width: 1200px;
+                    width: 100%;
+                    border: 1px solid var(--borderColor);
+                    border-radius: 20px;
+                    padding: 20px;
+
+                    .group {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 25px;
+
+                        .input-group {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 5px;
+                            flex: 1;
+
+                            label {
+                                font-size: 18px;
+                                color: var(--darkGray);
+                            }
+
+                            input,
+                            select {
+                                width: 100%;
+                                font-size: 18px;
+                                padding: 8px 12px;
+                                outline: none;
+                                border: 1px solid var(--borderColor);
+                                border-radius: 10px;
+                                color: #5c5c5c;
+
+                                &:disabled {
+                                    background-color: #f0f0f0;
+                                }
+                            }
+                        }
+                    }
+
+                    .btns {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        button {
+                            width: 210px;
+                            border: none;
+                            background-color: var(--secondColor);
+                            color: #FFF;
+                            font-size: 17px;
+                            padding: 8px 0;
+                            border-radius: 10px;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .profile {
+        .content {
+            .main-container {
+                .form {
+                    form {
+                        .group {
+                            flex-direction: column;
+
+                            .input-group {
+                                width: 100%;
+                            }
+                        }
+
+                        .btns {
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

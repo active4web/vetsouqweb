@@ -1,0 +1,144 @@
+.menu-phone {
+    position: fixed;
+    top: 0;
+    inset-inline-start: -100%;
+    height: 100vh;
+    width: 100%;
+    background-color: #FFF;
+    z-index: 999;
+    transition: all 0.3s ease;
+    overflow: auto;
+
+    &.active {
+        inset-inline-start: 0;
+    }
+
+    .head-menu {
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--second_color);
+
+        .close-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-color: var(--second_color);
+            color: #FFF;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .lang {
+            position: relative;
+            width: 120px;
+
+            >button {
+                display: block;
+                width: 100%;
+                height: 40px;
+                padding-top: 5px;
+                border: 1px solid var(--second_color);
+                color: var(--second_color);
+                background-color: transparent;
+            }
+
+            .menu {
+                position: absolute;
+                left: 0;
+                top: calc(100% + 5px);
+                border: 1px solid var(--second_color);
+                width: 100%;
+                height: 50px;
+                padding: 10px;
+                background-color: #FFF;
+
+                button {
+                    width: 100%;
+                    border: none;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 80px;
+            }
+        }
+    }
+
+    .links,
+    .other-links {
+        border-bottom: 1px solid var(--second_color);
+
+        ul {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+
+            svg {
+                width: 17px;
+                height: 17px;
+                color: var(--second_color);
+            }
+
+            a {
+                color: #333;
+                font-size: 17px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+        }
+    }
+
+    .other-links {
+        ul {
+
+            li,
+            a {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            span {
+                display: flex;
+                align-items: center;
+            }
+
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .user-menu {
+        display: block;
+        margin: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #333;
+        cursor: pointer;
+
+        >div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            p {
+                font-weight: 600;
+            }
+        }
+    }
+}

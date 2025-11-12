@@ -1,0 +1,43 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: 100vh;
+    background-color: var(--secondColor);
+    color: #FFF;
+
+    h1 {
+        direction: ltr;
+        font-size: 100px;
+    }
+
+    p {
+        font-size: 35px;
+    }
+
+    a {
+        display: block;
+        width: fit-content;
+        background-color: #FFF;
+        color: var(--mainColor);
+        padding: 15px 25px;
+        font-size: 20px;
+        margin-top: 15px;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 767px) {
+    .error {
+        h1 {
+            font-size: 50px;
+        }
+
+        p {
+            font-size: 25px;
+        }
+    }
+}
