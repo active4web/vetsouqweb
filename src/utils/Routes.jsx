@@ -4,8 +4,17 @@ import Layout from "../pages/Layout/Layout";
 import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/Auth/Login/Login";
+import Register from "../pages/Auth/Register/Register";
 
-const About = React.lazy(() => import("../pages/About/About"));
+const WhoWeAre = React.lazy(() => import("../pages/StaticPages/WhoWeAre/WhoWeAre"));
+const Contact = React.lazy(() => import("../pages/StaticPages/Contact/Contact"));
+const CustomerService = React.lazy(() => import("../pages/StaticPages/CustomerService/CustomerService"));
+const PrivacyPolicy = React.lazy(() => import("../pages/StaticPages/PrivacyPolicy/PrivacyPolicy"));
+const ReturnPolicy = React.lazy(() => import("../pages/StaticPages/ReturnPolicy/ReturnPolicy"));
+const TermsAndConditions = React.lazy(() => import("../pages/StaticPages/TermsAndConditions/TermsAndConditions"));
+const Blogs = React.lazy(() => import("../pages/Blogs/Blogs"));
+const Faqs = React.lazy(() => import("../pages/Faqs/Faqs"));
+const BlogDetails = React.lazy(() => import("../pages/BlogDetails/BlogDetails"));
 
 const routes = createBrowserRouter([
     {
@@ -22,21 +31,48 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/about",
-                element: <About />
+                element: <WhoWeAre />
             },
             {
                 path: "/login",
                 element: <Login />
             },
-
-            // {
-            //     path: "/blogs",
-            //     element: <Blogs />
-            // },
-            // {
-            //     path: "/blogs/blog-details/:id",
-            //     element: <BlogDetails />
-            // },
+            {
+                path: "/register",
+                element: <Register />
+            },
+            {
+                path: "/contact",
+                element: <Contact />
+            },
+            {
+                path: "/customer-service",
+                element: <CustomerService />
+            },
+            {
+                path: "/privacy-policy",
+                element: <PrivacyPolicy />
+            },
+            {
+                path: "/return-policy",
+                element: <ReturnPolicy />
+            },
+            {
+                path: "/terms-and-conditions",
+                element: <TermsAndConditions />
+            },
+            {
+                path: "/blogs",
+                element: <Blogs />
+            },
+            {
+                path: "/faqs",
+                element: <Faqs />
+            },
+            {
+                path: "/blogs/blog-details/:id",
+                element: <BlogDetails />
+            },
 
             // {
             //     path: "/contact",
@@ -46,14 +82,7 @@ const routes = createBrowserRouter([
             //     path: "/categories",
             //     element: <Categories />
             // },
-            // {
-            //     path: "/login",
-            //     element: <Login />
-            // },
-            // {
-            //     path: "/register",
-            //     element: <Register />
-            // },
+
             // {
             //     path: "/profile",
             //     element: <Profile />
@@ -82,34 +111,11 @@ const routes = createBrowserRouter([
             //     path: "/check-out",
             //     element: <CheckOut />
             // },
+
             // {
-            //     path: "/who-we-are",
-            //     element: <WhoWeAre />
-            // },
-            // {
-            //     path: "/customer-service",
-            //     element: <CustomerService />
-            // },
-            // {
-            //     path: "/privacy-policy",
-            //     element: <PrivacyPolicy />
-            // },
-            // {
-            //     path: "/return-policy",
-            //     element: <ReturnPolicy />
-            // },
-            // {
-            //     path: "/terms-and-conditions",
-            //     element: <TermsAndConditions />
-            // },
-            // {
-            //     path: "/working-with-taqi",
-            //     element: <WorkingWithTaqi />
-            // },
-            // {
-            //     path: "/faqs",
-            //     element: <Faqs />
-            // },
+
+
+
         ]
     },
 

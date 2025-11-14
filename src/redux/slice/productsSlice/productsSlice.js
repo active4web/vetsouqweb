@@ -31,7 +31,9 @@ export const staticPagesSlice = apiSlice.injectEndpoints({
                 const params = new URLSearchParams();
 
                 params.append("lang", lang);
-                params.append("category_id", catid);
+                if (catid) {
+                    params.append("category_id", catid);
+                }
 
                 if (subid) {
                     params.append("sub_category_id", subid);

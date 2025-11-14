@@ -1,0 +1,35 @@
+.layout {
+    position: relative;
+    min-height: 100vh;
+
+    .scroll-to-top {
+        position: fixed;
+        bottom: 25px;
+        inset-inline-end: -100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background-color: var(--main_color);
+        color: #FFF;
+        transition: all 0.5s ease;
+        z-index: 2;
+
+        &.show-btn {
+            inset-inline-end: 25px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .layout {
+        .scroll-to-top {
+            bottom: 40px;
+        }
+    }
+}

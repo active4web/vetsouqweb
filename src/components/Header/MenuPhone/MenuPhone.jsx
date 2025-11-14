@@ -18,7 +18,7 @@ import { changeLang } from "../../../utils/functions";
 import { useState } from "react";
 
 const MenuPhone = ({ menuPhone, setMenuPhone }) => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [lang, setLang] = useState(false)
 
     return (
@@ -67,45 +67,45 @@ const MenuPhone = ({ menuPhone, setMenuPhone }) => {
             <div className="links">
                 <ul>
                     <li>
-                        <Link to="/">
+                        <Link to="/" onClick={() => setMenuPhone(false)}>
                             <span><Home size={18} /></span>
-                            <span>الرئيسية</span>
+                            <span>{t("home")}</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/categories">
+                        <Link to="/" onClick={() => setMenuPhone(false)}>
                             <span><LayoutGrid size={18} /></span>
-                            <span>الاقسام</span>
+                            <span>{t("categorys")}</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/about">
+                        <Link to="/about" onClick={() => setMenuPhone(false)}>
                             <span><Info size={18} /></span>
-                            <span>من نحن</span>
+                            <span>{t("who_we_are")}</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/contact">
+                        <Link to="/contact" onClick={() => setMenuPhone(false)}>
                             <span><Phone size={18} /></span>
-                            <span>تواصل معنا</span>
+                            <span>{t("contact")}</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/offers">
+                        <Link to="/" onClick={() => setMenuPhone(false)}>
                             <span><Tag size={18} /></span>
-                            <span>عروض</span>
+                            <span>{t("offers")}</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/articles">
+                        <Link to="/blogs" onClick={() => setMenuPhone(false)}>
                             <span><FileText size={18} /></span>
-                            <span>مقالات</span>
+                            <span>{t("blog")}</span>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/faq">
+                        <Link to="/faqs" onClick={() => setMenuPhone(false)}>
                             <span><HelpCircle size={18} /></span>
-                            <span>الاسئلة الشائعة</span>
+                            <span>{t("faqs")}</span>
                         </Link>
                     </li>
                 </ul>
@@ -128,23 +128,23 @@ const MenuPhone = ({ menuPhone, setMenuPhone }) => {
                     </li>
                     <li>
                         <span><Check /></span>
-                        <span>دفع امن</span>
+                        <span>{t("free_shipping")}</span>
                     </li>
                     <li>
                         <span><Check /></span>
-                        <span>شحن مجانى</span>
+                        <span>{t("secure_payment")}</span>
                     </li>
                 </ul>
             </div>
 
-            <Link to="/" className="user-menu">
+            <Link to="/login" className="user-menu" onClick={() => setMenuPhone(false)}>
                 <span className="user">
                     <UserRound />
                 </span>
 
                 <div>
-                    <p>تسجيل دخول</p>
-                    <span>الحساب</span>
+                    <p>{t("login")}</p>
+                    <span>{t("account")}</span>
                 </div>
             </Link>
         </div>

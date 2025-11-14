@@ -1,0 +1,121 @@
+.product-v2 {
+    display: flex;
+    gap: 15px;
+    border: 1px solid #CCC;
+    border-radius: 20px;
+    padding: 15px;
+    position: relative;
+    height: 250px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border: 1px solid var(--main_color);
+    }
+
+    .fav-btn {
+        position: absolute;
+        inset-inline-end: 10px;
+        top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 0, 0, 0.185);
+        border: none;
+        color: rgba(255, 0, 0, 0.664);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .image {
+        img {
+            width: 130px;
+            height: 150px;
+            object-fit: contain;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex: 1;
+
+        .rate {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            span {
+                display: flex;
+                align-content: center;
+            }
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .cuurent {
+                font-size: 20px;
+                color: var(--main_color);
+                font-weight: 500;
+            }
+
+            .old {
+                font-size: 17px;
+                text-decoration: line-through;
+                color: #333;
+            }
+        }
+
+        .add-to-cart {
+            border: none;
+            background-color: var(--main_color);
+            color: #FFF;
+            padding-block: 8px;
+            font-size: 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: auto;
+            width: 100%;
+
+            svg {
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .product-v2 {
+        .content {
+            .rate {
+
+                span {
+                    padding-top: 6px;
+                }
+            }
+
+            .add-to-cart {
+                padding-top: 12px !important;
+            }
+        }
+    }
+}

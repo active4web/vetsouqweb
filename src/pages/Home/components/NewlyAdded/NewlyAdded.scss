@@ -1,0 +1,30 @@
+.newly-added {
+    padding-top: 50px;
+
+    .container {
+        >.loading-btn {
+            color: var(--main_color);
+
+            svg {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        .all-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .newly-added {
+        .container {
+            .all-products {
+                grid-template-columns: repeat(1, 1fr) !important;
+            }
+        }
+    }
+}

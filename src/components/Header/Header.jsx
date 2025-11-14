@@ -12,8 +12,10 @@ import { useEffect, useRef, useState } from "react";
 import MenuPhone from "./MenuPhone/MenuPhone";
 import { changeLang } from "../../utils/functions";
 
+import BoxEmpty from "../../assets/box-empty.png"
+
 const Header = () => {
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [menuControl, setMenuControl] = useState(null);
     const [menuPhone, setMenuPhone] = useState(false);
     const userRef = useRef();
@@ -82,18 +84,18 @@ const Header = () => {
                             </a>
                         </li>
                         <li>
-                            <Link to="/about">من نحن</Link>
+                            <Link to="/about">{t("who_we_are")}</Link>
                         </li>
                         <li>
-                            <Link to="/contact-us">تواصل معنا</Link>
-                        </li>
-                        <li>
-                            <span><Check /></span>
-                            <span>دفع امن</span>
+                            <Link to="/contact">{t("contact")}</Link>
                         </li>
                         <li>
                             <span><Check /></span>
-                            <span>شحن مجانى</span>
+                            <span>{t("free_shipping")}</span>
+                        </li>
+                        <li>
+                            <span><Check /></span>
+                            <span>{t("secure_payment")}</span>
                         </li>
                     </ul>
 
@@ -124,7 +126,9 @@ const Header = () => {
             <div className="head-2">
                 <div className="container">
                     <div className="logo">
-                        <img src="/logo.png" alt="logo" />
+                        <Link to="/">
+                            <img src="/logo.png" alt="logo" />
+                        </Link>
 
                         <div className="btns">
                             <Link to="/fav" className="fav">
@@ -144,8 +148,8 @@ const Header = () => {
                     <div className="search">
                         <form>
                             <span><Search /></span>
-                            <input type="text" placeholder="ابحث عن اى شئ تريدة" />
-                            <button>بحث</button>
+                            <input type="text" placeholder={t("placeholder_main_search")} />
+                            <button>{t("search")}</button>
                         </form>
                     </div>
 
@@ -161,14 +165,21 @@ const Header = () => {
                                 </span>
 
                                 <div>
-                                    <p>تسجيل دخول</p>
-                                    <span>الحساب</span>
+                                    <p>{t("login")}</p>
+                                    <span>{t("account")}</span>
                                 </div>
                             </div>
 
                             {menuControl === "user" &&
                                 <div className="menu">
-                                    test1
+                                    <p>سجل الآن واستمتع بالتسوق بأسعار مخفضة!</p>
+                                    <Link to="login" onClick={() => setMenuControl(null)}>تسجيل دخول</Link>
+                                    <p>عميل جديد؟
+                                        <Link
+                                            to="/register"
+                                            onClick={() => setMenuControl(null)}
+                                        >سجل الآن</Link>
+                                    </p>
                                 </div>
                             }
                         </div>
@@ -181,13 +192,15 @@ const Header = () => {
 
                                 <div>
                                     <p>$0.00</p>
-                                    <span>اجمالى السلة</span>
+                                    <span>{t("cart_total")}</span>
                                 </div>
                             </div>
 
                             {menuControl === "cart" &&
                                 <div className="menu">
-                                    test2
+                                    <img src={BoxEmpty} alt="box-icon" />
+                                    <span>لا يوجد منتجات في سلة التسوق.</span>
+                                    <p>أضف 300.00 دولارًا إلى سلة التسوق واحصل على شحن مجاني!</p>
                                 </div>
                             }
                         </div>
@@ -199,19 +212,19 @@ const Header = () => {
                 <div className="container">
                     <ul className="links">
                         <li>
-                            <Link>الرئيسية</Link>
+                            <Link to="/">{t("home")}</Link>
                         </li>
                         <li>
-                            <Link>الاقسام</Link>
+                            <Link>{t("categorys")}</Link>
                         </li>
                         <li>
-                            <Link>عروض</Link>
+                            <Link>{t("offers")}</Link>
                         </li>
                         <li>
-                            <Link>مقالات</Link>
+                            <Link to="/blogs">{t("blog")}</Link>
                         </li>
                         <li>
-                            <Link>الاسئلة الشائعة</Link>
+                            <Link to="/faqs">{t("faqs")}</Link>
                         </li>
                     </ul>
                 </div>

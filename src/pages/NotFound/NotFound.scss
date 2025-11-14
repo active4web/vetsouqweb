@@ -1,0 +1,41 @@
+.not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 10px 20px;
+
+    .content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        p {
+            font-size: 60px;
+            color: var(--secondColor);
+        }
+
+        a {
+            display: block;
+            margin-top: 40px;
+            margin-inline: auto;
+            width: fit-content;
+            background-color: var(--secondColor);
+            color: #FFF;
+            font-size: 25px;
+            padding: 10px 25px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .not-found {
+        .content {
+            p {
+                font-size: 50px;
+            }
+        }
+    }
+}

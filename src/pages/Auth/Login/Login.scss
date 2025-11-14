@@ -2,7 +2,7 @@
     .content {
         padding-block: 30px;
 
-        .main-container {
+        .container {
             h2 {
                 text-align: center;
                 font-size: 40px;
@@ -21,7 +21,7 @@
                     gap: 20px;
                     max-width: 500px;
                     width: 100%;
-                    border: 1px solid #333;
+                    border: 1px solid #CCC;
                     border-radius: 20px;
                     padding: 20px;
 
@@ -40,7 +40,7 @@
                             font-size: 18px;
                             padding: 8px 12px;
                             outline: none;
-                            border: 1px solid #333;
+                            border: 1px solid #CCC;
                             border-radius: 10px;
                         }
                     }
@@ -50,7 +50,7 @@
                         width: fit-content;
                         color: var(--second_color);
                         font-weight: 500;
-                        font-size: 16spx;
+                        font-size: 16px;
                         text-decoration: underline;
                     }
 
@@ -68,13 +68,20 @@
                             padding: 8px 0;
                             border-radius: 10px;
                             cursor: pointer;
+
+                            .loading-btn {
+                                svg {
+                                    width: 22px;
+                                    height: 22px;
+                                }
+                            }
                         }
 
                         p {
                             display: flex;
                             align-items: center;
                             gap: 5px;
-                            color: #FFF;
+                            color: #333;
                             font-size: 17px;
                         }
                     }
@@ -87,7 +94,7 @@
 @media (max-width: 700px) {
     .login {
         .content {
-            .main-container {
+            .container {
                 .form {
                     form {
                         .btns {

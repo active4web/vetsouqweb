@@ -1,12 +1,11 @@
 import "./Register.scss";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import BarPage from "../../../components/BarPage/BarPage";
 import { useRegisterMutation } from "../../../redux/slice/authSlice/authSlice";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { getUserToken } from "../../../utils/CookisAuth";
-import LoadingBtn from "../../../components/LoadingBtn/LoadingBtn";
+import SmallLoad from "../../../components/SmallLoad/SmallLoad";
 
 const Register = () => {
     const { t, i18n } = useTranslation();
@@ -31,9 +30,6 @@ const Register = () => {
                 password: e.target.elements.password.value,
                 email: e.target.elements.email.value,
                 address: e.target.elements.address.value,
-                city_id: +e.target.elements.city.value,
-                postcode: e.target.elements.postcode.value,
-                region: e.target.elements.region.value,
                 lang: i18n.language,
                 firebase_id: firebase_token
             }
@@ -63,10 +59,8 @@ const Register = () => {
 
     return (
         <div className="register">
-            <BarPage namePage={t("register")} />
-
             <div className="content">
-                <div className="main-container">
+                <div className="container">
                     <h2>{t("register")}</h2>
 
                     <div className="form">
@@ -131,62 +125,9 @@ const Register = () => {
                                 </div>
                             </div>
 
-                            {/* <div className="group">
-                                <div className="input-group">
-                                    <label>{t("country")}</label>
-                                    <select
-                                        name="coutry"
-                                        defaultValue=""
-                                        onChange={(e) => {
-                                            setCountryId(e.target.value)
-                                        }}
-                                    >
-                                        <option value="">{t("select_country")}</option>
-                                        {countrys?.data?.map((el) => (
-                                            <option key={el.ID} value={el.ID}>{el.Name}</option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                <div className="input-group">
-                                    <label>{t("post_code")}</label>
-                                    <input
-                                        type="text"
-                                        placeholder={t("enter_post_code")}
-                                        name="postcode"
-                                    />
-                                </div>
-                            </div> */}
-
-                            {/* <div className="group">
-                                <div className="input-group">
-                                    <label>{t("city")}</label>
-                                    <select
-                                        name="city"
-                                        defaultValue=""
-                                    >
-                                        <option value="">{t("select_city")}</option>
-                                        {citys?.data?.map((el) => (
-                                            <option key={el.id} value={el.id}>
-                                                {el.name[i18n.language]}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                <div className="input-group">
-                                    <label>{t("region_state")}</label>
-                                    <input
-                                        type="text"
-                                        placeholder={t("enter_region_state")}
-                                        name="region"
-                                    />
-                                </div>
-                            </div> */}
-
                             <div className="btns">
                                 <button type="submit" disabled={isLoading}>
-                                    {isLoading ? <LoadingBtn /> : `${t("register")}`}
+                                    {isLoading ? <SmallLoad /> : `${t("register")}`}
                                 </button>
                                 <p>
                                     {t("have_account")} <Link to="/login">{t("login")}</Link>

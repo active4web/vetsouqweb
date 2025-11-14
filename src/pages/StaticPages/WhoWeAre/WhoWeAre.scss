@@ -1,0 +1,39 @@
+.who-we-are {
+    >.container {
+        padding-block: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .image {
+            width: 35%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .content {
+            width: 50%;
+
+            p {
+                font-size: 18px;
+                line-height: 1.9;
+                overflow-wrap: break-word;
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .who-we-are {
+        >.container {
+            flex-direction: column-reverse;
+            gap: 20px;
+
+            >div {
+                width: 100% !important;
+            }
+        }
+    }
+}

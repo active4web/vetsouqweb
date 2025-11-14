@@ -13,6 +13,7 @@ import {
 } from "../../redux/slice/cartSlice/cartSlice";
 import { Heart } from "lucide-react";
 import SmallLoad from "../SmallLoad/SmallLoad";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
     const token = getUserToken();
@@ -75,31 +76,31 @@ const Product = ({ product }) => {
 
     return (
         <div className="product">
-            <div className="image">
-                <img src={product.image} alt={product.title_img} />
-            </div>
+            <Link to="/product-details/12" className="image">
+                <img src={product?.image} alt={product?.title_img} />
+            </Link>
 
             <div className="content">
-                <button className="fav-btn" onClick={() => handleAddFav(product.id)}>
-                    {loadFav ? "..." : <Heart />}
+                <button className="fav-btn" onClick={() => handleAddFav(product?.id)}>
+                    {loadFav ? <SmallLoad /> : <Heart />}
                 </button>
 
                 <div className="rate">
                     <Rating
                         style={{ maxWidth: 70 }}
-                        value={+product.hasReviews}
+                        value={+product?.hasReviews}
                         itemStyles={myStyles}
                         readOnly
                     />
-                    <span>{+product.hasReviews}</span>
+                    <span>{+product?.hasReviews}</span>
                 </div>
 
-                <h3>{product.name}</h3>
+                <h3>{product?.name}</h3>
 
                 <div className="price">
-                    <p className="cuurent">${product.current_price}</p>
-                    {+product.old_price > 0 &&
-                        <p className="old">${+product.old_price}</p>
+                    <p className="cuurent">${product?.current_price}</p>
+                    {+product?.old_price > 0 &&
+                        <p className="old">${+product?.old_price}</p>
                     }
                 </div>
 

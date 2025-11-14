@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { getUserToken, setUserToken } from "../../../utils/CookisAuth";
 import { useEffect } from "react";
+import SmallLoad from "../../../components/SmallLoad/SmallLoad";
 
 const Login = () => {
     const { t } = useTranslation();
@@ -49,10 +50,8 @@ const Login = () => {
 
     return (
         <div className="login">
-            {/* <BarPage namePage={t("login")} /> */}
-
             <div className="content">
-                <div className="main-container">
+                <div className="container">
                     <h2>{t("login")}</h2>
 
                     <div className="form">
@@ -71,7 +70,7 @@ const Login = () => {
 
                             <div className="btns">
                                 <button type="submit" disabled={isLoading}>
-                                    {isLoading ? ".." : `${t("login")}`}
+                                    {isLoading ? <SmallLoad /> : `${t("login")}`}
                                 </button>
 
                                 <p>

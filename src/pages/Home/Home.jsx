@@ -3,8 +3,12 @@ import { useTranslation } from "react-i18next";
 import Services from "../../components/Services/Services";
 import HeadHome from "./components/HeadHome/HeadHome";
 import { useHomePageQuery, useServicesQuery } from "../../redux/slice/homeSlice/homeSlice";
-import { useAllCatigoriesQuery, useBestSellersQuery } from "../../redux/slice/productsSlice/productsSlice";
+import { useAllCatigoriesQuery, useBestSellersQuery, useProductOffersQuery, useProductsQuery } from "../../redux/slice/productsSlice/productsSlice";
 import PopularProducts from "./components/PopularProducts/PopularProducts";
+import DistinctiveSections from "./components/DistinctiveSections/DistinctiveSections";
+import NewlyAdded from "./components/NewlyAdded/NewlyAdded";
+import MarqueeComponent from "./components/Marquee/Marquee";
+import Discounts from "./components/Discounts/Discounts";
 
 const Home = () => {
     const { i18n } = useTranslation();
@@ -28,6 +32,16 @@ const Home = () => {
         isLoading: loadBestSellers,
         isFetching: fetchBestSellers
     } = useBestSellersQuery(i18n.language);
+    const {
+        data: newProducts = [],
+        isLoading: loadNewProducts,
+        isFetching: fetchNewProducts
+    } = useProductsQuery({ lang: i18n.language, },);
+    const {
+        data: productsOffers = [],
+        isLoading: loadOffers,
+        isFetching: fetchOffers,
+    } = useProductOffersQuery({ lang: i18n.language, has_offer_end_date: 1 });
 
     return (
         <div className="home">
@@ -45,6 +59,17 @@ const Home = () => {
             <PopularProducts
                 data={bestSellers}
                 loading={loadBestSellers || fetchBestSellers}
+            />
+
+            <DistinctiveSections />
+
+            <NewlyAdded data={newProducts} loading={loadNewProducts || fetchNewProducts} />
+
+            <MarqueeComponent />
+
+            <Discounts
+                data={productsOffers}
+                loading={loadOffers || fetchOffers}
             />
         </div>
     );

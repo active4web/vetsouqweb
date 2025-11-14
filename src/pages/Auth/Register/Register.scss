@@ -1,13 +1,12 @@
 .register {
     .content {
-        padding-top: 50px;
-        padding-bottom: 30px;
+        padding-block: 40px;
 
-        .main-container {
+        .container {
             h2 {
                 text-align: center;
                 font-size: 40px;
-                color: var(--secondColor);
+                color: var(--second_color);
                 margin-bottom: 30px;
             }
 
@@ -22,7 +21,7 @@
                     gap: 30px;
                     max-width: 1200px;
                     width: 100%;
-                    border: 1px solid var(--borderColor);
+                    border: 1px solid #CCC;
                     border-radius: 20px;
                     padding: 20px;
 
@@ -40,7 +39,7 @@
 
                             label {
                                 font-size: 18px;
-                                color: var(--darkGray);
+                                color: #333;
                             }
 
                             input,
@@ -49,7 +48,7 @@
                                 font-size: 18px;
                                 padding: 8px 12px;
                                 outline: none;
-                                border: 1px solid var(--borderColor);
+                                border: 1px solid #CCC;
                                 border-radius: 10px;
                                 color: #5c5c5c;
                             }
@@ -65,20 +64,32 @@
                         button {
                             width: 130px;
                             border: none;
-                            background-color: var(--secondColor);
+                            background-color: var(--second_color);
                             color: #FFF;
                             font-size: 17px;
                             padding: 7px 0;
                             border-radius: 10px;
                             cursor: pointer;
+
+                            .loading-btn {
+                                svg {
+                                    width: 22px;
+                                    height: 22px;
+                                }
+                            }
                         }
 
                         p {
                             display: flex;
                             align-items: center;
                             gap: 5px;
-                            color: var(--lightGray);
+                            color: #333;
                             font-size: 17px;
+
+                            a {
+                                color: var(--second_color);
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }
@@ -90,7 +101,7 @@
 @media (max-width: 700px) {
     .register {
         .content {
-            .main-container {
+            .container {
                 .form {
                     form {
                         .group {
