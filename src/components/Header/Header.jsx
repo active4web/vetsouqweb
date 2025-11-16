@@ -1,5 +1,5 @@
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -18,6 +18,7 @@ const Header = () => {
     const { t, i18n } = useTranslation();
     const [menuControl, setMenuControl] = useState(null);
     const [menuPhone, setMenuPhone] = useState(false);
+    const navigate = useNavigate();
     const userRef = useRef();
     const cartRef = useRef();
 
@@ -38,6 +39,13 @@ const Header = () => {
         };
     }, []);
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (e.target.elements.search.value) {
+            navigate(`/search?s=${e.target.elements.search.value}`);
+        }
+    }
+
     return (
         <div className="header">
             <div className="bar">
@@ -55,13 +63,13 @@ const Header = () => {
                         dir="ltr"
                     >
                         <SwiperSlide>
-                            <p>شحن مجاني لجميع الطلبات التي تزيد عن 60 دولارًا.</p>
+                            <p>{t("ads_1")}</p>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <p>شحن مجاني لجميع الطلبات التي تزيد عن 60 دولارًا.</p>
+                            <p>{t("ads_2")}</p>
                         </SwiperSlide>
                         <SwiperSlide>
-                            <p>شحن مجاني لجميع الطلبات التي تزيد عن 60 دولارًا.</p>
+                            <p>{t("ads_3")}</p>
                         </SwiperSlide>
                     </Swiper>
                 </div>
@@ -146,10 +154,13 @@ const Header = () => {
                     </div>
 
                     <div className="search">
-                        <form>
+                        <form onSubmit={handleSearch}>
                             <span><Search /></span>
-                            <input type="text" placeholder={t("placeholder_main_search")} />
-                            <button>{t("search")}</button>
+                            <input
+                                name="search"
+                                type="text"
+                                placeholder={t("placeholder_main_search")} />
+                            <button type="submit">{t("search")}</button>
                         </form>
                     </div>
 

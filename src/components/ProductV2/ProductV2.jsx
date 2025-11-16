@@ -104,7 +104,7 @@ const ProductV2 = ({ product }) => {
                         onClick={() => handleAddToCart(product)}
                         disabled={isLoading}
                     >
-                        {isLoading ? <SmallLoad /> : "اضف الى السلة"}
+                        {isLoading ? <SmallLoad /> : t("add_to_cart")}
                     </button>
                 }
             </div>

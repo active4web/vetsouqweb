@@ -1,0 +1,46 @@
+.type-of-animal {
+    .loading-btn {
+        color: var(--main_color);
+
+        svg {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .container {
+        .categories {
+            margin-top: 30px;
+
+            .box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                text-align: center;
+                color: #111;
+
+                img {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    border: 2px solid #111;
+                    padding: 10px;
+                }
+            }
+
+            .mySwiper {
+                padding-bottom: 70px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .type-of-animal {
+        h2 {
+            margin-top: 30px;
+        }
+    }
+}

@@ -153,5 +153,15 @@
     "order_number": "رقم الطلب",
     "order_date": "تاريخ الطلب",
     "status": "الحالة",
-    "order_details": "تفاصيل الطلب"
+    "order_details": "تفاصيل الطلب",
+    "most_popular_products": "المنتجات الأكثر شعبية",
+    "featured_categories": "اقسام مميزة",
+    "newly_added_products": "منتجات مضافة حديثاً",
+    "dont_miss_this_week_offers": "لا تفوت عروض هذا الاسبوع",
+    "search_results": "نتائج البحث",
+    "ads_1": "كل ما تحتاجه لحيوانك في مكان واحد",
+    "ads_2": "صحة أفضل لحيوانك",
+    "ads_3": "منتجات بيطرية موثوقة لرفيقك",
+    "shop_by_pet_type": "التسوق حسب نوع الحيوان",
+    "shop_by_food": "التسوق حسب الطعام"
 }

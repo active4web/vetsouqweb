@@ -1,6 +1,7 @@
 import "./Discounts.scss";
 import Product from "../../../../components/Product/Product";
 import SmallLoad from "../../../../components/SmallLoad/SmallLoad";
+import { useTranslation } from "react-i18next";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
@@ -8,11 +9,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const Discounts = ({ data, loading }) => {
+    const { t } = useTranslation();
 
     return (
         <div className="discounts">
             <div className="container">
-                <h2 className="head-section">لا تفوت عروض هذا الاسبوع</h2>
+                <h2 className="head-section">{t("dont_miss_this_week_offers")}</h2>
 
                 <div className="products-slider">
                     {loading ? <SmallLoad /> :
@@ -20,7 +22,7 @@ const Discounts = ({ data, loading }) => {
                             slidesPerView={1}
                             spaceBetween={15}
                             speed={1000}
-                            loop={true}
+                            loop={data?.data?.products.length > 4}
                             modules={[Pagination, Autoplay]}
                             className="mySwiper"
                             breakpoints={{

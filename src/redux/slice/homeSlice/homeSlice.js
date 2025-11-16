@@ -2,9 +2,9 @@ import { apiSlice } from "../../apiSlice";
 
 export const homeSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        homePage: builder.query({
+        banners: builder.query({
             query: (lang) => ({
-                url: `/api/home?lang=${lang}`,
+                url: `/api/banners?lang=${lang}`,
                 method: "GET",
             }),
             providesTags: ["Home"]
@@ -18,17 +18,9 @@ export const homeSlice = apiSlice.injectEndpoints({
             providesTags: ["Home"]
         }),
 
-        socialMedia: builder.query({
-            query: () => ({
-                url: `/api/contacts`,
-                method: "GET",
-            }),
-            providesTags: ["Home"]
-        }),
-
-        ourTeam: builder.query({
+        partners: builder.query({
             query: (lang) => ({
-                url: `/api/our_team?lang=${lang}`,
+                url: `/api/partners?lang=${lang}`,
                 method: "GET",
             }),
             providesTags: ["Home"]
@@ -37,8 +29,7 @@ export const homeSlice = apiSlice.injectEndpoints({
 })
 
 export const {
-    useHomePageQuery,
     useServicesQuery,
-    useSocialMediaQuery,
-    useOurTeamQuery
+    useBannersQuery,
+    usePartnersQuery
 } = homeSlice;

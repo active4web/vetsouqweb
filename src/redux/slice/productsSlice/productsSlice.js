@@ -3,15 +3,9 @@ import { apiSlice } from "../../apiSlice";
 export const staticPagesSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         allCatigories: builder.query({
-            query: ({ lang, new_arrival }) => {
-                let url = `/api/categories?lang=${lang}`;
-
-                if (new_arrival !== undefined) {
-                    url += `&new_arrival=${new_arrival}`;
-                }
-
+            query: ({ lang }) => {
                 return {
-                    url,
+                    url: `/api/categories?store_id=34&lang=${lang}`,
                     method: "GET",
                 };
             },
@@ -20,27 +14,23 @@ export const staticPagesSlice = apiSlice.injectEndpoints({
 
         subCatigories: builder.query({
             query: ({ lang, id }) => ({
-                url: `/api/subCategory?category_id=${id}&lang=${lang}`,
+                url: `/api/getSubCategories?store_id=34&lang=${lang}&category_id=${id}`,
                 method: "GET",
             }),
             providesTags: ["Products"]
         }),
 
         products: builder.query({
-            query: ({ lang, catid, subid, filter }) => {
+            query: ({ lang, catid, subid }) => {
                 const params = new URLSearchParams();
-
                 params.append("lang", lang);
+
                 if (catid) {
                     params.append("category_id", catid);
                 }
 
                 if (subid) {
                     params.append("sub_category_id", subid);
-                }
-
-                if (filter) {
-                    params.append("filter", filter);
                 }
 
                 return {

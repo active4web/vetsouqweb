@@ -6,21 +6,21 @@
         align-items: stretch;
         gap: 25px;
 
+        .loading-btn {
+            color: var(--main_color);
+
+            svg {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
         .categories {
             width: 28%;
             height: 500px;
             overflow: auto;
             border: 1px solid var(--second_color);
             padding: 15px;
-
-            .loading-btn {
-                color: var(--main_color);
-
-                svg {
-                    width: 50px;
-                    height: 50px;
-                }
-            }
 
             ul {
                 display: flex;

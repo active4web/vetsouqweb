@@ -5,6 +5,7 @@ import Home from "../pages/Home/Home";
 import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/Auth/Login/Login";
 import Register from "../pages/Auth/Register/Register";
+import SearchPage from "../pages/SearchPage/SearchPage";
 
 const WhoWeAre = React.lazy(() => import("../pages/StaticPages/WhoWeAre/WhoWeAre"));
 const Contact = React.lazy(() => import("../pages/StaticPages/Contact/Contact"));
@@ -15,6 +16,7 @@ const TermsAndConditions = React.lazy(() => import("../pages/StaticPages/TermsAn
 const Blogs = React.lazy(() => import("../pages/Blogs/Blogs"));
 const Faqs = React.lazy(() => import("../pages/Faqs/Faqs"));
 const BlogDetails = React.lazy(() => import("../pages/BlogDetails/BlogDetails"));
+const Shop = React.lazy(() => import("../pages/Shop/Shop"));
 
 const routes = createBrowserRouter([
     {
@@ -73,6 +75,14 @@ const routes = createBrowserRouter([
                 path: "/blogs/blog-details/:id",
                 element: <BlogDetails />
             },
+            {
+                path: "/search",
+                element: <SearchPage />
+            },
+            {
+                path: "/shop/:id",
+                element: <Shop />
+            },
 
             // {
             //     path: "/contact",
@@ -86,10 +96,6 @@ const routes = createBrowserRouter([
             // {
             //     path: "/profile",
             //     element: <Profile />
-            // },
-            // {
-            //     path: "/categories/:id/shop",
-            //     element: <Shop />
             // },
             // {
             //     path: "/categories/:id1/shop/product-details/:id2",

@@ -1,10 +1,10 @@
 .marquee {
-    .rfm-marquee-container {
-        margin-block: 35px;
-        padding-block: 15px;
+    margin-top: 65px;
+    margin-bottom: 50px;
 
+    .rfm-marquee-container {
         img {
-            width: 140px;
+            width: 80px;
             margin: 0 17px !important;
             object-fit: cover;
             transition: all 0.3s;
@@ -15,12 +15,19 @@
             }
         }
     }
+
+    .loading-btn {
+        color: var(--main_color);
+
+        svg {
+            width: 50px;
+            height: 50px;
+        }
+    }
 }
 
 @media (max-width: 767px) {
     .marquee {
-        margin-top: 10px;
-
         img {
             width: 100px !important;
             margin: 0 10px !important;

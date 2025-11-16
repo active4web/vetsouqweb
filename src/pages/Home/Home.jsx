@@ -2,21 +2,22 @@ import "./Home.scss";
 import { useTranslation } from "react-i18next";
 import Services from "../../components/Services/Services";
 import HeadHome from "./components/HeadHome/HeadHome";
-import { useHomePageQuery, useServicesQuery } from "../../redux/slice/homeSlice/homeSlice";
+import { useBannersQuery, usePartnersQuery, useServicesQuery } from "../../redux/slice/homeSlice/homeSlice";
 import { useAllCatigoriesQuery, useBestSellersQuery, useProductOffersQuery, useProductsQuery } from "../../redux/slice/productsSlice/productsSlice";
 import PopularProducts from "./components/PopularProducts/PopularProducts";
-import DistinctiveSections from "./components/DistinctiveSections/DistinctiveSections";
 import NewlyAdded from "./components/NewlyAdded/NewlyAdded";
 import MarqueeComponent from "./components/Marquee/Marquee";
 import Discounts from "./components/Discounts/Discounts";
+import TypeOfAnimal from "./components/TypeOfAnimal/TypeOfAnimal";
+import ShoppingByFood from "./components/ShoppingByFood/ShoppingByFood";
 
 const Home = () => {
     const { i18n } = useTranslation();
     const {
-        data: homeData = {},
-        isLoading: loadHome,
-        isFetching: fetchHome
-    } = useHomePageQuery(i18n.language, { skip: true });
+        data: banners = {},
+        isLoading: loadBanners,
+        isFetching: fetchBanners
+    } = useBannersQuery(i18n.language);
     const {
         data: mainCategories = [],
         isLoading: loadCat,
@@ -42,13 +43,18 @@ const Home = () => {
         isLoading: loadOffers,
         isFetching: fetchOffers,
     } = useProductOffersQuery({ lang: i18n.language, has_offer_end_date: 1 });
+    const {
+        data: partners = [],
+        isLoading: loadPartners,
+        isFetching: fetchPartners,
+    } = usePartnersQuery({ lang: i18n.language });
 
     return (
         <div className="home">
             <HeadHome
-                slider={homeData}
+                slider={banners}
                 categories={mainCategories}
-                loading={loadHome || loadCat || fetchHome || fetchCat}
+                loading={loadBanners || loadCat || fetchBanners || fetchCat}
             />
 
             <Services
@@ -56,16 +62,27 @@ const Home = () => {
                 loading={loadServ || fetchServ}
             />
 
+            <TypeOfAnimal
+                data={mainCategories}
+                loading={loadCat || fetchCat}
+            />
+
+            <ShoppingByFood
+                data={mainCategories}
+                loading={loadCat || fetchCat}
+            />
+
             <PopularProducts
                 data={bestSellers}
                 loading={loadBestSellers || fetchBestSellers}
             />
 
-            <DistinctiveSections />
-
             <NewlyAdded data={newProducts} loading={loadNewProducts || fetchNewProducts} />
 
-            <MarqueeComponent />
+            <MarqueeComponent
+                data={partners}
+                loading={loadPartners || fetchPartners}
+            />
 
             <Discounts
                 data={productsOffers}
