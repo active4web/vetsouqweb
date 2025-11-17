@@ -1,14 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import BarPage from "../../../components/BarPage/BarPage";
-import { useProfileQuery, useUpdateProfileMutation } from "../../../redux/slice/authSlice/authSlice";
-import { getUserToken } from "../../../utils/CookisAuth";
 import "./Profile.scss";
-import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import SmallLoad from "../../../components/SmallLoad/SmallLoad";
 import Loading from "../../../components/Loading/Loading";
+import { useProfileQuery, useUpdateProfileMutation } from "../../../redux/slice/authSlice/authSlice";
+import { useNavigate } from "react-router-dom";
+import { getUserToken } from "../../../utils/CookisAuth";
+import { useEffect, useState } from "react";
 import { useCitysQuery, useCountrysQuery } from "../../../redux/slice/locationsSlice/locationsSlice";
 import { useTranslation } from "react-i18next";
-import toast from "react-hot-toast";
-import LoadingBtn from "../../../components/LoadingBtn/LoadingBtn";
 
 const Profile = () => {
     const { t, i18n } = useTranslation();
@@ -94,8 +93,6 @@ const Profile = () => {
 
     return (
         <div className="profile">
-            <BarPage namePage={t("profile")} />
-
             <div className="content">
                 <div className="main-container">
                     <h2>{t("profile")}</h2>
@@ -245,7 +242,7 @@ const Profile = () => {
                                 ) : (
                                     <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
                                         <button type="submit" disabled={loadUpdate}>
-                                            {loadUpdate ? <LoadingBtn /> : t("submitButton")}
+                                            {loadUpdate ? <SmallLoad /> : t("submitButton")}
                                         </button>
 
                                         <button

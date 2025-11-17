@@ -73,7 +73,7 @@ const MenuPhone = ({ menuPhone, setMenuPhone }) => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" onClick={() => setMenuPhone(false)}>
+                        <Link to="/categories" onClick={() => setMenuPhone(false)}>
                             <span><LayoutGrid size={18} /></span>
                             <span>{t("categorys")}</span>
                         </Link>
@@ -91,7 +91,7 @@ const MenuPhone = ({ menuPhone, setMenuPhone }) => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/" onClick={() => setMenuPhone(false)}>
+                        <Link to="/offers" onClick={() => setMenuPhone(false)}>
                             <span><Tag size={18} /></span>
                             <span>{t("offers")}</span>
                         </Link>
@@ -113,7 +113,7 @@ const MenuPhone = ({ menuPhone, setMenuPhone }) => {
 
             <div className="other-links">
                 <ul>
-                    <li>
+                    {/* <li>
                         <a href="tel:0123456789">
                             <span><Phone /></span>
                             <span>0123456789</span>
@@ -125,7 +125,7 @@ const MenuPhone = ({ menuPhone, setMenuPhone }) => {
                             <span><Mail /></span>
                             <span>user123@gmail.com</span>
                         </a>
-                    </li>
+                    </li> */}
                     <li>
                         <span><Check /></span>
                         <span>{t("free_shipping")}</span>

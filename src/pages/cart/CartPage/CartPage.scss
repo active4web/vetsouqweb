@@ -1,0 +1,222 @@
+.cart-page {
+    .page {
+        padding-block: 50px;
+        min-height: 300px;
+
+        .sar-icons {
+            width: 14px;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+
+            .items {
+                width: 72%;
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    font-size: 18px;
+
+                    thead {
+                        tr {
+                            td {
+                                border: 1px solid #EEE;
+                                padding: 15px;
+                                text-align: center;
+
+                                &:first-of-type {
+                                    width: 40%;
+                                }
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            td {
+                                border: 1px solid #EEE;
+                                padding: 15px;
+                                text-align: center;
+
+                                &:first-of-type {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                    text-align: start;
+
+                                    img {
+                                        width: 70px;
+                                    }
+                                }
+
+                                &:nth-of-type(3) {
+                                    .quantity {
+                                        width: 100%;
+                                        height: 42px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        gap: 10px;
+                                        border: 1px solid #CCC;
+                                        padding: 8px 15px;
+                                        min-width: 60px;
+                                        border-radius: 12px;
+                                        margin-inline: auto;
+
+                                        button {
+                                            width: 25px;
+                                            height: 25px;
+                                            background-color: var(--second_color);
+                                            color: #FFF;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            border: none;
+                                            border-radius: 50%;
+                                            font-size: 12px;
+                                            cursor: pointer;
+
+                                            svg {
+                                                width: 15px;
+                                                height: 15px;
+                                            }
+
+                                            &:disabled {
+                                                opacity: 0.5;
+                                            }
+                                        }
+
+                                        .loading-btn {
+                                            svg {
+                                                width: 15px;
+                                                height: 15px;
+                                            }
+                                        }
+                                    }
+
+                                    .loading-btn {
+                                        color: var(--second_color);
+                                        font-size: 19px;
+                                    }
+                                }
+
+                                &:last-of-type {
+                                    button {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        font-size: 20px;
+                                        color: red;
+                                        border: none;
+                                        background-color: transparent;
+                                        margin-inline: auto;
+                                        cursor: pointer;
+
+                                        &:disabled {
+                                            opacity: 0.5;
+                                            cursor: no-drop;
+                                        }
+
+                                        .loading-btn {
+                                            color: red;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .check-price {
+                flex: 1;
+                padding: 20px;
+                border: 1px solid #EEE;
+                border-radius: 8px;
+                width: 300px;
+                background: #fff;
+
+                .total,
+                .subtotal {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 18px;
+                    margin-bottom: 15px;
+                }
+
+                .coupon {
+                    display: flex;
+                    gap: 10px;
+                    margin-bottom: 15px;
+
+                    input {
+                        flex: 1;
+                        padding: 8px;
+                        border: 1px solid #CCC;
+                        border-radius: 4px;
+                        outline: none;
+                        font-size: 18px;
+                        text-align: center;
+                    }
+
+                    .apply-btn {
+                        background: var(--second_color);
+                        color: #fff;
+                        border: none;
+                        padding: 8px 15px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 17px;
+                    }
+                }
+
+                .checkout-btn {
+                    display: block;
+                    text-align: center;
+                    width: 100%;
+                    padding: 10px;
+                    background: var(--second_color);
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 17px;
+                }
+            }
+        }
+
+        .no-items-cart {
+            text-align: center;
+            font-size: 30px;
+            color: var(--second_color);
+        }
+    }
+}
+
+@media (max-width: 1160px) {
+    .cart-page {
+        .page {
+            .container {
+                flex-direction: column;
+
+                >div {
+                    width: 100% !important;
+                }
+
+                .items {
+                    overflow: auto;
+
+                    table {
+                        min-width: 1000px;
+                    }
+                }
+            }
+        }
+    }
+}

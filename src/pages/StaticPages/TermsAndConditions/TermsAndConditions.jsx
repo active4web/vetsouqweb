@@ -1,28 +1,30 @@
 import "./TermsAndConditions.scss";
 import { useTranslation } from "react-i18next";
 import { useStaticPagesQuery } from "../../../redux/slice/staticPagesSlice/staticPagesSlice";
-
+import SmallLoad from "../../../components/SmallLoad/SmallLoad";
 
 const TermsAndConditions = () => {
     const { i18n } = useTranslation();
-    const { data = [] } = useStaticPagesQuery({
+    const { data = [], isLoading } = useStaticPagesQuery({
         lang: i18n.language,
         id: 19,
     });
 
     return (
         <div className="terms-and-conditions">
-            <div className="container">
-                <div className="content">
-                    <div dangerouslySetInnerHTML={{ __html: data?.data?.[0]?.content }} className="desc" />
+            {isLoading ? <SmallLoad /> :
+                <div className="container">
+                    <div className="content">
+                        <div dangerouslySetInnerHTML={{ __html: data?.data?.[0]?.content }} className="desc" />
+                    </div>
+                    <div className="image">
+                        <img
+                            src={data?.data?.[0]?.image}
+                            alt={data?.data?.[0]?.title}
+                        />
+                    </div>
                 </div>
-                <div className="image">
-                    <img
-                        src={data?.data?.[0]?.image}
-                        alt={data?.data?.[0]?.title}
-                    />
-                </div>
-            </div>
+            }
         </div>
     );
 }

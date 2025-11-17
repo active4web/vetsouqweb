@@ -13,6 +13,8 @@ import MenuPhone from "./MenuPhone/MenuPhone";
 import { changeLang } from "../../utils/functions";
 
 import BoxEmpty from "../../assets/box-empty.png"
+import { getUserToken } from "../../utils/CookisAuth";
+import { useGetCartQuery } from "../../redux/slice/cartSlice/cartSlice";
 
 const Header = () => {
     const { t, i18n } = useTranslation();
@@ -21,6 +23,16 @@ const Header = () => {
     const navigate = useNavigate();
     const userRef = useRef();
     const cartRef = useRef();
+    const token = getUserToken();
+    const firebase_token = localStorage.getItem("fcmToken");
+
+    const { data: cart = [] } = useGetCartQuery({
+        lang: i18n.language,
+        token: token,
+        firebase_token: firebase_token
+    });
+
+    console.log(cart)
 
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -78,7 +90,7 @@ const Header = () => {
             <div className="head-1">
                 <div className="container">
                     <ul>
-                        <li>
+                        {/* <li>
                             <a href="tel:0123456789">
                                 <span><Phone /></span>
                                 <span>0123456789</span>
@@ -90,7 +102,7 @@ const Header = () => {
                                 <span><Mail /></span>
                                 <span>user123@gmail.com</span>
                             </a>
-                        </li>
+                        </li> */}
                         <li>
                             <Link to="/about">{t("who_we_are")}</Link>
                         </li>
@@ -139,9 +151,11 @@ const Header = () => {
                         </Link>
 
                         <div className="btns">
-                            <Link to="/fav" className="fav">
-                                <Heart />
-                            </Link>
+                            {token &&
+                                <Link to="/wishlist" className="fav">
+                                    <Heart />
+                                </Link>
+                            }
 
                             <Link to="/cart" className="cart">
                                 <ShoppingCart />
@@ -165,21 +179,36 @@ const Header = () => {
                     </div>
 
                     <div className="control">
-                        <Link to="/fav" className="fav">
-                            <Heart />
-                        </Link>
+                        {token &&
+                            <Link to="/wishlist" className="fav">
+                                <Heart />
+                            </Link>
+                        }
 
                         <div className="user-box" ref={userRef}>
-                            <div className="head" onClick={() => setMenuControl("user")}>
-                                <span className="user">
-                                    <UserRound />
-                                </span>
+                            {token ?
+                                <Link to="/profile" className="head">
+                                    <span className="user">
+                                        <UserRound />
+                                    </span>
 
-                                <div>
-                                    <p>{t("login")}</p>
-                                    <span>{t("account")}</span>
+                                    <div>
+                                        <p>{t("hello")}</p>
+                                        <span>{t("account")}</span>
+                                    </div>
+                                </Link>
+                                :
+                                <div className="head" onClick={() => setMenuControl("user")}>
+                                    <span className="user">
+                                        <UserRound />
+                                    </span>
+
+                                    <div>
+                                        <p>{t("login")}</p>
+                                        <span>{t("account")}</span>
+                                    </div>
                                 </div>
-                            </div>
+                            }
 
                             {menuControl === "user" &&
                                 <div className="menu">
@@ -202,16 +231,49 @@ const Header = () => {
                                 </span>
 
                                 <div>
-                                    <p>$0.00</p>
+                                    <p>${Number(cart?.data?.totalPrice).toFixed(2)}</p>
                                     <span>{t("cart_total")}</span>
                                 </div>
                             </div>
 
                             {menuControl === "cart" &&
                                 <div className="menu">
-                                    <img src={BoxEmpty} alt="box-icon" />
-                                    <span>لا يوجد منتجات في سلة التسوق.</span>
-                                    <p>أضف 300.00 دولارًا إلى سلة التسوق واحصل على شحن مجاني!</p>
+                                    {cart?.data?.list_item?.length > 0 ?
+                                        <div className="products">
+                                            {cart?.data?.list_item.slice(0, 2).map((el) => (
+                                                <div className="item" key={el.id}>
+                                                    <div className="image">
+                                                        <img src={el.image} alt={`image-${el.id}`} />
+                                                    </div>
+
+                                                    <div className="info">
+                                                        <h4>{el.name}</h4>
+                                                        <p>
+                                                            <span>${Number(el.price).toFixed(2)}</span>
+                                                            <span>{"x"}</span>
+                                                            <span>{el.quantity}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            ))}
+
+                                            <div className="btns">
+                                                <Link to="/cart">عربة التسوق</Link>
+                                                <Link
+                                                    to="/check-out"
+                                                    state={{
+                                                        totalPrice: Number(cart?.data?.totalPrice).toFixed(2)
+                                                    }}
+                                                >الدفع</Link>
+                                            </div>
+                                        </div>
+                                        :
+                                        <div className="no-items">
+                                            <img src={BoxEmpty} alt="box-icon" />
+                                            <span>لا يوجد منتجات في سلة التسوق.</span>
+                                            <p>أضف 300.00 دولارًا إلى سلة التسوق واحصل على شحن مجاني!</p>
+                                        </div>
+                                    }
                                 </div>
                             }
                         </div>
@@ -226,10 +288,10 @@ const Header = () => {
                             <Link to="/">{t("home")}</Link>
                         </li>
                         <li>
-                            <Link>{t("categorys")}</Link>
+                            <Link to="categories">{t("categorys")}</Link>
                         </li>
                         <li>
-                            <Link>{t("offers")}</Link>
+                            <Link to="/offers">{t("offers")}</Link>
                         </li>
                         <li>
                             <Link to="/blogs">{t("blog")}</Link>

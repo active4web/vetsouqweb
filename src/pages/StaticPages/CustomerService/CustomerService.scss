@@ -1,4 +1,14 @@
 .customer-service {
+    .loading-btn {
+        padding-block: 30px;
+        color: var(--second_color);
+
+        svg {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
     >.container {
         padding-block: 25px;
         display: flex;

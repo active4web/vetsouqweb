@@ -84,20 +84,31 @@
             }
         }
 
-        .add-to-cart {
-            border: none;
-            background-color: var(--main_color);
-            color: #FFF;
-            padding-block: 8px;
-            font-size: 15px;
-            border-radius: 20px;
-            cursor: pointer;
+        .btn-cart {
             margin-top: auto;
             width: 100%;
 
-            svg {
-                width: 22px;
-                height: 22px;
+            p {
+                text-align: center;
+                color: var(--main_color);
+                font-size: 16px;
+                font-weight: 600px;
+            }
+
+            .add-to-cart {
+                border: none;
+                background-color: var(--main_color);
+                color: #FFF;
+                padding-block: 8px;
+                font-size: 15px;
+                border-radius: 20px;
+                cursor: pointer;
+                width: 100%;
+
+                svg {
+                    width: 22px;
+                    height: 22px;
+                }
             }
         }
     }

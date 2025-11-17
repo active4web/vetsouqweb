@@ -1,0 +1,182 @@
+.offers {
+    >h3 {
+        text-align: center;
+        font-size: 40px;
+        color: var(--second_color);
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .search {
+        margin-bottom: 40px;
+
+        input {
+            display: block;
+            width: 500px;
+            margin-inline: auto;
+            outline: none;
+            padding: 8px 12px;
+            font-size: 16px;
+            border: 1px solid #a8a8a8;
+            border-radius: 20px;
+            text-align: center;
+        }
+    }
+
+    .loading-btn {
+        color: var(--second_color);
+        margin-bottom: 25px;
+
+        svg {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    >.main-content {
+        padding-inline: 30px;
+
+        .content {
+            padding-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+
+            >p {
+                margin-bottom: 25px;
+                font-size: 25px;
+                color: #FFF;
+            }
+
+            aside {
+                width: 25%;
+                overflow: auto;
+                border: 1px solid #CCC;
+                padding: 22px;
+                border-radius: 15px;
+                background-color: #F8F8FB;
+                overflow: auto;
+
+                div:not(div:last-of-type) {
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid #e6e6e6;
+                }
+
+                div:not(div:first-of-type) {
+                    padding-top: 20px;
+                }
+
+                h3 {
+                    font-size: 25px;
+                    margin-bottom: 10px;
+                    color: #111;
+                }
+
+                input[type="radio"],
+                input[type="checkbox"] {
+                    display: none;
+                }
+
+                label {
+                    font-size: 16px;
+                    margin-inline-start: 35px;
+                    position: relative;
+                    cursor: pointer;
+                    color: #111;
+
+                    &::before {
+                        content: "\2714";
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 19px;
+                        height: 19px;
+                        border: 1px solid #d4d4d4;
+                        background-color: #fff;
+                        border-radius: 5px;
+                        position: absolute;
+                        inset-inline-start: -35px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        transition: 0.2s ease;
+                        color: #FFF;
+                    }
+                }
+
+                input:checked+label::before {
+                    background-color: var(--second_color);
+                    border-color: var(--second_color);
+                }
+
+                .sub-categorys {
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+                }
+
+                .color {
+                    ul {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 10px;
+                        width: 100%;
+
+                        li {
+                            button {
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 10px;
+                                border: none;
+                                background-color: #CCC;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+
+            >div:last-of-type {
+                flex: 1;
+
+                .all-products {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    gap: 20px;
+                }
+            }
+        }
+    }
+
+    .no-result {
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--secondColor);
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 991px) {
+    .offers {
+        .search {
+            padding-inline: 20px;
+
+            input {
+                width: 100%;
+            }
+        }
+
+        >.main-content {
+            .content {
+                flex-direction: column;
+
+                aside {
+                    position: static;
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}

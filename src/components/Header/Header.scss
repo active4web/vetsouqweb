@@ -274,26 +274,103 @@
 
                 .cart-box {
                     .menu {
-                        text-align: center;
+                        height: 260px;
 
-                        img {
-                            display: block;
-                            width: 80px;
-                            margin: 10px auto 15px auto;
+                        .products {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 15px;
+
+                            .item {
+                                display: flex;
+                                align-items: flex-start;
+                                gap: 15px;
+
+                                .image {
+                                    img {
+                                        width: 70px;
+                                        height: 70px;
+                                        border-radius: 50%;
+                                    }
+                                }
+
+                                .info {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 7px;
+
+                                    h4 {
+                                        color: var(--second_color);
+                                        font-size: 15px;
+                                        line-height: 1.6;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 2;
+                                        line-clamp: 2;
+                                        -webkit-box-orient: vertical;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        line-height: 1.7;
+                                    }
+
+                                    p {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 5px;
+                                        font-size: 15px;
+                                    }
+                                }
+                            }
+
+                            .btns {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 15px;
+                                margin-top: 7px;
+
+                                a {
+                                    display: block;
+                                    width: 120px;
+                                    padding-block: 5px;
+                                    font-size: 14px;
+                                    cursor: pointer;
+                                    border: 1px solid var(--second_color);
+                                    background-color: transparent;
+                                    color: var(--second_color);
+                                    border-radius: 25px;
+                                    text-align: center;
+
+                                    &:first-of-type {
+                                        background-color: var(--second_color);
+                                        color: #FFF;
+                                    }
+                                }
+                            }
                         }
 
-                        span {
-                            display: block;
-                            margin-bottom: 10px;
-                            color: #111;
-                            font-weight: 500;
-                            font-size: 14px;
-                        }
+                        .no-items {
+                            text-align: center;
+                            padding-top: 15px;
 
-                        p {
-                            color: #333;
-                            font-size: 14px;
-                            line-height: 1.6;
+                            img {
+                                display: block;
+                                width: 80px;
+                                margin: 10px auto 15px auto;
+                            }
+
+                            span {
+                                display: block;
+                                margin-bottom: 10px;
+                                color: #111;
+                                font-weight: 500;
+                                font-size: 14px;
+                            }
+
+                            p {
+                                color: #333;
+                                font-size: 14px;
+                                line-height: 1.8;
+                            }
                         }
                     }
                 }

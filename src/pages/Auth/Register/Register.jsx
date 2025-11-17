@@ -38,8 +38,9 @@ const Register = () => {
                 await register(data).unwrap();
                 toast.success(t("account_registered"))
                 navigate("/login", { replace: true })
-            } catch {
-                toast.error(t("unexpected_error"))
+            } catch (error) {
+                console.log(error)
+                toast.error(error?.data?.errors?.phone || t("unexpected_error"))
             }
         }
 

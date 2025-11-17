@@ -25,6 +25,7 @@ const Product = ({ product }) => {
     const { data: cart = [] } = useGetCartQuery({
         lang: i18n.language,
         token: token,
+        firebase_token: firebase_token
     });
 
     const myStyles = {
@@ -76,7 +77,7 @@ const Product = ({ product }) => {
 
     return (
         <div className="product">
-            <Link to="/product-details/12" className="image">
+            <Link to={`/shop/${product?.category_id}/product-details/${product?.id}`} className="image">
                 <img src={product?.image} alt={product?.title_img} />
             </Link>
 
@@ -104,15 +105,17 @@ const Product = ({ product }) => {
                     }
                 </div>
 
-                {cuurentItem ? <p>المنتج فى السلة</p> :
-                    <button
-                        className="add-to-cart"
-                        onClick={() => handleAddToCart(product)}
-                        disabled={isLoading}
-                    >
-                        {isLoading ? <SmallLoad /> : t("add_to_cart")}
-                    </button>
-                }
+                <div className="btn-cart">
+                    {cuurentItem ? <p>المنتج فى السلة</p> :
+                        <button
+                            className="add-to-cart"
+                            onClick={() => handleAddToCart(product)}
+                            disabled={isLoading}
+                        >
+                            {isLoading ? <SmallLoad /> : t("add_to_cart")}
+                        </button>
+                    }
+                </div>
             </div>
         </div>
     );
