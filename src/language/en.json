@@ -164,5 +164,10 @@
     "ads_3": "Trusted Veterinary Products for Your Pet",
     "shop_by_pet_type": "Shop by Pet Type",
     "shop_by_food": "Shop by Food",
-    "hello": "Welcome"
+    "hello": "Welcome",
+    "register_and_enjoy_discount": "Register now and enjoy shopping at discounted prices!",
+    "new_customer": "New Customer?",
+    "register_now": "Register Now",
+    "shopping_cart": "Shopping Cart",
+    "no_products_in_cart": "There are no products in the shopping cart."
 }

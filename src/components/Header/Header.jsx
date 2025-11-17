@@ -212,13 +212,16 @@ const Header = () => {
 
                             {menuControl === "user" &&
                                 <div className="menu">
-                                    <p>سجل الآن واستمتع بالتسوق بأسعار مخفضة!</p>
-                                    <Link to="login" onClick={() => setMenuControl(null)}>تسجيل دخول</Link>
-                                    <p>عميل جديد؟
+                                    <p>{t("register_and_enjoy_discount")}</p>
+                                    <Link to="login" onClick={() => setMenuControl(null)}>{t("login")}</Link>
+                                    <p>
+                                        {t("new_customer")} {" "}
                                         <Link
                                             to="/register"
                                             onClick={() => setMenuControl(null)}
-                                        >سجل الآن</Link>
+                                        >
+                                            {t("register_now")}
+                                        </Link>
                                     </p>
                                 </div>
                             }
@@ -258,20 +261,19 @@ const Header = () => {
                                             ))}
 
                                             <div className="btns">
-                                                <Link to="/cart">عربة التسوق</Link>
+                                                <Link to="/cart">{t("shopping_cart")}</Link>
                                                 <Link
                                                     to="/check-out"
                                                     state={{
                                                         totalPrice: Number(cart?.data?.totalPrice).toFixed(2)
                                                     }}
-                                                >الدفع</Link>
+                                                >{t("checkout")}</Link>
                                             </div>
                                         </div>
                                         :
                                         <div className="no-items">
                                             <img src={BoxEmpty} alt="box-icon" />
-                                            <span>لا يوجد منتجات في سلة التسوق.</span>
-                                            <p>أضف 300.00 دولارًا إلى سلة التسوق واحصل على شحن مجاني!</p>
+                                            <span>{t("no_products_in_cart")}</span>
                                         </div>
                                     }
                                 </div>

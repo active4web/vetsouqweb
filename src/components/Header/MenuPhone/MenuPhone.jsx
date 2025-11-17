@@ -8,7 +8,6 @@ import {
     Home,
     Info,
     LayoutGrid,
-    Mail,
     Phone,
     Tag,
     UserRound,

@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useAllBlogsQuery } from "../../redux/slice/blogsSlice/blogsSlice";
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
+import { t } from "i18next";
+import SmallLoad from "../../components/SmallLoad/SmallLoad";
 
 const Blogs = () => {
     const { i18n } = useTranslation()
-    const { data: blogs = [] } = useAllBlogsQuery(i18n.language);
+    const { data: blogs = [], isLoading } = useAllBlogsQuery(i18n.language);
 
     const itemsPerPage = 6;
     const [currentItems, setCurrentItems] = useState([]);
@@ -36,36 +38,38 @@ const Blogs = () => {
 
     return (
         <div className="blogs">
-            <h2 className="head-page ">المقالات</h2>
+            <h2 className="head-page ">{t("blogs")}</h2>
 
-            <div className="content">
-                {currentItems.length > 0 ?
-                    <div className="container">
-                        <div className="all-blogs">
-                            {currentItems.map((el) => (
-                                <Blog
-                                    key={el.id}
-                                    blog={el}
-                                />
-                            ))}
+            {isLoading ? <SmallLoad /> :
+                <div className="content">
+                    {currentItems.length > 0 ?
+                        <div className="container">
+                            <div className="all-blogs">
+                                {currentItems.map((el) => (
+                                    <Blog
+                                        key={el.id}
+                                        blog={el}
+                                    />
+                                ))}
+                            </div>
+
+                            <ReactPaginate
+                                breakLabel="..."
+                                nextLabel={i18n.language === "en" ? <ChevronsRight /> : <ChevronsLeft />}
+                                onPageChange={handlePageClick}
+                                pageRangeDisplayed={2}
+                                pageCount={pageCount}
+                                previousLabel={i18n.language === "en" ? <ChevronsLeft /> : <ChevronsRight />}
+                                renderOnZeroPageCount={null}
+                                containerClassName={"pagination"}
+                                activeClassName={"active"}
+                            />
                         </div>
-
-                        <ReactPaginate
-                            breakLabel="..."
-                            nextLabel={i18n.language === "en" ? <ChevronsRight /> : <ChevronsLeft />}
-                            onPageChange={handlePageClick}
-                            pageRangeDisplayed={2}
-                            pageCount={pageCount}
-                            previousLabel={i18n.language === "en" ? <ChevronsLeft /> : <ChevronsRight />}
-                            renderOnZeroPageCount={null}
-                            containerClassName={"pagination"}
-                            activeClassName={"active"}
-                        />
-                    </div>
-                    :
-                    <p className="no-data">لا يوجد مقالات</p>
-                }
-            </div>
+                        :
+                        <p className="no-data">{t("no_result")}</p>
+                    }
+                </div>
+            }
         </div>
     );
 }

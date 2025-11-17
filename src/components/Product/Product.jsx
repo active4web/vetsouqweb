@@ -106,7 +106,7 @@ const Product = ({ product }) => {
                 </div>
 
                 <div className="btn-cart">
-                    {cuurentItem ? <p>المنتج فى السلة</p> :
+                    {cuurentItem ? <p>{t("product_in_cart")}</p> :
                         <button
                             className="add-to-cart"
                             onClick={() => handleAddToCart(product)}

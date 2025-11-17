@@ -242,11 +242,11 @@
                     .menu {
                         p {
                             text-align: center;
-                            font-size: 17px;
+                            font-size: 16px;
                             color: #333;
-                            width: 85%;
+                            width: 100%;
                             margin-inline: auto;
-                            line-height: 1.7;
+                            line-height: 1.6;
                             font-weight: 500;
 
                             &:first-of-type {
@@ -350,7 +350,7 @@
 
                         .no-items {
                             text-align: center;
-                            padding-top: 15px;
+                            padding-top: 45px;
 
                             img {
                                 display: block;
